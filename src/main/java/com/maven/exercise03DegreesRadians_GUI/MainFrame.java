@@ -14,8 +14,16 @@ public class MainFrame {
 
 	private JFrame frmConversor;
 	private final JLabel lblEnterTheValue = new JLabel("Enter the value in degrees:");
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textFieldDegrees;
+	private JTextField textFieldRadians;
+	private JButton btnToRadians = new JButton("To radians");
+	private JButton btnToDegrees = new JButton("To Degrees");
+	
+	private JLabel lblEnterTheValue_1 = new JLabel("Enter the value in raidians:");
+	
+	private JLabel lblResult = new JLabel("Result: ");
+	
+	ConversorDegresRadians cdr = new ConversorDegresRadians();
 
 	/**
 	 * Launch the application.
@@ -54,38 +62,48 @@ public class MainFrame {
 		lblEnterTheValue.setBounds(23, 25, 204, 33);
 		frmConversor.getContentPane().add(lblEnterTheValue);
 		
-		textField = new JTextField();
-		textField.setBounds(51, 57, 120, 19);
-		frmConversor.getContentPane().add(textField);
-		textField.setColumns(10);
+		textFieldDegrees = new JTextField();
+		textFieldDegrees.setBounds(51, 57, 120, 19);
+		frmConversor.getContentPane().add(textFieldDegrees);
+		textFieldDegrees.setColumns(10);
 		
-		JLabel lblEnterTheValue_1 = new JLabel("Enter the value in raidians:");
 		lblEnterTheValue_1.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		lblEnterTheValue_1.setBounds(23, 123, 204, 19);
 		frmConversor.getContentPane().add(lblEnterTheValue_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(51, 148, 114, 19);
-		frmConversor.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textFieldRadians = new JTextField();
+		textFieldRadians.setBounds(51, 148, 120, 19);
+		frmConversor.getContentPane().add(textFieldRadians);
+		textFieldRadians.setColumns(10);
 		
-		JLabel lblResult = new JLabel("Result: ");
 		lblResult.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
-		lblResult.setBounds(23, 202, 70, 15);
+		lblResult.setBounds(23, 202, 204, 15);
 		frmConversor.getContentPane().add(lblResult);
 		
-		JButton btnToDegrees = new JButton("To degrees");
+		
 		btnToDegrees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//System.out.println(textFieldRadians.getText().toString());
+				double valueInDegrees = Double.parseDouble(textFieldRadians.getText().toString());
+				double result = cdr.convertRadiansToDegrees(valueInDegrees);
+				lblResult.setText("Result: " + result);
+				textFieldDegrees.setText("");
+				textFieldRadians.setText("");
 			}
 		});
 		btnToDegrees.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		btnToDegrees.setBounds(23, 245, 117, 25);
 		frmConversor.getContentPane().add(btnToDegrees);
 		
-		JButton btnToRadians = new JButton("To radians");
+		
 		btnToRadians.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//System.out.println(textFieldDegrees.getText().toString());
+				double valueInRadians = Double.parseDouble(textFieldDegrees.getText().toString());
+				double result = cdr.convertDegreestToRadians(valueInRadians);
+				lblResult.setText("Result: " + result);
+				textFieldDegrees.setText("");
+				textFieldRadians.setText("");
 			}
 		});
 		btnToRadians.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
