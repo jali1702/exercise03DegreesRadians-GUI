@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class MainFrame {
 
-	private JFrame frame;
+	private JFrame frmConversor;
 	private final JLabel lblEnterTheValue = new JLabel("Enter the value in degrees:");
 	private JTextField textField;
 	private JTextField textField_1;
@@ -25,7 +25,7 @@ public class MainFrame {
 			public void run() {
 				try {
 					MainFrame window = new MainFrame();
-					window.frame.setVisible(true);
+					window.frmConversor.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,34 +44,35 @@ public class MainFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.PINK);
-		frame.setBounds(100, 100, 321, 327);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmConversor = new JFrame();
+		frmConversor.setTitle("Conversor");
+		frmConversor.getContentPane().setBackground(Color.PINK);
+		frmConversor.setBounds(100, 100, 321, 327);
+		frmConversor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmConversor.getContentPane().setLayout(null);
 		lblEnterTheValue.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		lblEnterTheValue.setBounds(23, 25, 204, 33);
-		frame.getContentPane().add(lblEnterTheValue);
+		frmConversor.getContentPane().add(lblEnterTheValue);
 		
 		textField = new JTextField();
 		textField.setBounds(51, 57, 120, 19);
-		frame.getContentPane().add(textField);
+		frmConversor.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblEnterTheValue_1 = new JLabel("Enter the value in raidians:");
 		lblEnterTheValue_1.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		lblEnterTheValue_1.setBounds(23, 123, 204, 19);
-		frame.getContentPane().add(lblEnterTheValue_1);
+		frmConversor.getContentPane().add(lblEnterTheValue_1);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(51, 148, 114, 19);
-		frame.getContentPane().add(textField_1);
+		frmConversor.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblResult = new JLabel("Result: ");
 		lblResult.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		lblResult.setBounds(23, 202, 70, 15);
-		frame.getContentPane().add(lblResult);
+		frmConversor.getContentPane().add(lblResult);
 		
 		JButton btnToDegrees = new JButton("To degrees");
 		btnToDegrees.addActionListener(new ActionListener() {
@@ -80,7 +81,7 @@ public class MainFrame {
 		});
 		btnToDegrees.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		btnToDegrees.setBounds(23, 245, 117, 25);
-		frame.getContentPane().add(btnToDegrees);
+		frmConversor.getContentPane().add(btnToDegrees);
 		
 		JButton btnToRadians = new JButton("To radians");
 		btnToRadians.addActionListener(new ActionListener() {
@@ -89,6 +90,6 @@ public class MainFrame {
 		});
 		btnToRadians.setFont(new Font("NanumMyeongjo", Font.PLAIN, 14));
 		btnToRadians.setBounds(177, 245, 117, 25);
-		frame.getContentPane().add(btnToRadians);
+		frmConversor.getContentPane().add(btnToRadians);
 	}
 }
